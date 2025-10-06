@@ -262,7 +262,7 @@ class ActionEncoder:
         This is critical: illegal moves must have probability 0.
         """
         mask = np.zeros(self.action_size, dtype=np.float32)
-        for move in board.legal_moves:
+        for move in board.get_legal_moves():
             action_idx = self.encode_move(move)
             if action_idx >= 0:
                 mask[action_idx] = 1.0
